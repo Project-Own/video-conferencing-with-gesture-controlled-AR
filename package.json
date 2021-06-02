@@ -1,0 +1,10 @@
+{
+  "name": "vido-conferencing-with-gesture-based-ar-control",
+  "version": "0.0.1",
+  "description": "This project aims to build a server backend for a video conferencing application with  support for hand gesture recognition and implementation, which will be used to control and manipulate UX features and AR models.",
+  "main": "index.js",
+  "repository": "https://github.com/Project-Own/video-conferencing-with-gesture-controlled-AR.git",
+  "author": "Sahas Prajapati <b10prajapati@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
