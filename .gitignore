@@ -1,7 +1,9 @@
 
 node_modules
 
+
 # Dont push env variables to github
 .env
 
 yarn-error.lock
+npm-debug.log
