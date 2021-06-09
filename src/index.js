@@ -9,8 +9,8 @@ app.get("/", function (req, res) {
   return res.send("Hello World");
 });
 
-const port = process.env.PORT || 7000;
-const server =  app.listen(7000, () => {
+const port = process.env.PORT || 5000;
+const server = app.listen(port, () => {
   console.log(`Server is running ${port}`);
 });
 
