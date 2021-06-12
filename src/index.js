@@ -1,17 +1,24 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
 const express = require("express");
+const server = require("http").createServer(app);
+const cors = require("cors");
 
-const app = express();
-
-app.get("/", function (req, res) {
-  return res.send("Hello World");
+const io = require("socket.io")(server,{
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
 });
 
-const port = process.env.PORT || 5000;
-const server = app.listen(port, () => {
-  console.log(`Server is running ${port}`);
+app.use(cors());
+
+
+const PORT = process.env.PORT || 5000;
+
+app.get('/',(req,res) => {
+    res.send('Running');
 });
 
-module.exports = server;
+io.on("connection", (socket) => {
+
+});
+
