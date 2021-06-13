@@ -8,6 +8,6 @@ describe("GET/", () => {
   afterEach(() => server1.close());
 
   it("respond with Hello World", (done) => {
-    request(server1).get("/").expect("Hello World", done);
+    request(server1).get("/").expect("Running", done);
   });
 });

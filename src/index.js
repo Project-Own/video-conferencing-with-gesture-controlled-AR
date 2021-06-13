@@ -69,4 +69,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+const server1 = server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+
+module.exports = server1;
