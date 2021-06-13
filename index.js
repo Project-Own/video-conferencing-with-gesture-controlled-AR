@@ -68,3 +68,5 @@ io.on("connection", (socket) => {
     socket.broadcast.to(roomName).emit("answer", answer); //Sends Answer to the other peer in the room.
   });
 });
+
+server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
