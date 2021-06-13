@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "CI=true jest"
+    "test": "jest"
   },
   "license": "MIT",
   "private": false,
