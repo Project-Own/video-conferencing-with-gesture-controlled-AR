@@ -1,13 +1,14 @@
-const request = require("supertest");
+import request from "supertest";
+import server from ".";
 
 describe("GET/", () => {
-  var server1;
-  beforeEach(() => {
-    server1 = require("./index");
+  afterAll(() => server?.close());
+  it("respond with Running", (done) => {
+    request(server)
+      .get("/")
+      .expect("Running")
+      .then(() => done());
   });
-  afterEach(() => server1.close());
 
-  it("respond with Hello World", (done) => {
-    request(server1).get("/").expect("Running", done);
-  });
+  // it("", () => {});
 });
