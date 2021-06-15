@@ -1,9 +1,14 @@
 import request from "supertest";
-import { serverListener } from ".";
+import server from ".";
 
-afterAll(() => serverListener.close());
 describe("GET/", () => {
-  it("respond with Hello World", (done) => {
-    request(serverListener).get("/").expect("Running", done);
+  afterAll(() => server?.close());
+  it("respond with Running", (done) => {
+    request(server)
+      .get("/")
+      .expect("Running")
+      .then(() => done());
   });
+
+  // it("", () => {});
 });

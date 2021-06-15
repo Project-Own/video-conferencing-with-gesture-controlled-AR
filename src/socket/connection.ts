@@ -7,16 +7,22 @@ export const IOConnection = (io: Server) => {
       let rooms = io.sockets.adapter.rooms;
       let room = rooms.get(roomName);
 
+      console.log(`Room ${roomName} Size: ${room?.size}`);
       //room == undefined when no such room exists.
       if (room == undefined) {
+        console.log("Created");
         socket.join(roomName);
         socket.emit("created");
-      } else if (room.size == 1) {
+      } else if (room.size === 1) {
         //room.size == 1 when one person is inside the room.
+        console.log("Joined");
+
         socket.join(roomName);
         socket.emit("joined");
       } else {
         //when there are already two people inside the room.
+        console.log("Full");
+
         socket.emit("full");
       }
       console.log(rooms);
