@@ -11,7 +11,8 @@
     "Rohit Prajapati <roht.praz@gmail.com>"
   ],
   "scripts": {
-    "start": "nodemon src/index.ts",
+    "start": "nodemon build/src/index.js",
+    "dev": "nodemon src/index.ts",
     "build": "tsc --project ./",
     "test": "jest"
   },
