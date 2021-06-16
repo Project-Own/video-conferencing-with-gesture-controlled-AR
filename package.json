@@ -11,8 +11,7 @@
     "Rohit Prajapati <roht.praz@gmail.com>"
   ],
   "scripts": {
-    "start": "nodemon build/src/index.js",
-    "dev": "concurrently \"npm:test \" \"npm:build --watch\"  -m 1 ",
+    "start": "nodemon src/index.ts",
     "build": "tsc --project ./",
     "test": "jest"
   },
