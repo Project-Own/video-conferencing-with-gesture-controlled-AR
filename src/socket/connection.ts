@@ -25,7 +25,7 @@ export const IOConnection = (io: Server) => {
         console.log(SocketEvent.created);
         socket.join(roomName);
         socket.emit(SocketEvent.created);
-      } else if (room.size === 1) {
+      } else if (room.size < 10) {
         //room.size == 1 when one person is inside the room.
         console.log(SocketEvent.joined);
 
@@ -42,24 +42,32 @@ export const IOConnection = (io: Server) => {
 
     //Triggered when the person who joined the room is ready to communicate.
     socket.on(SocketEvent.ready, function (roomName) {
-      socket.broadcast.to(roomName).emit("ready"); //Informs the other peer in the room.
+      console.log(SocketEvent.ready);
+
+      socket.broadcast.to(roomName).emit(SocketEvent.ready); //Informs the other peer in the room.
     });
 
     //Triggered when server gets an icecandidate from a peer in the room.
 
     socket.on(SocketEvent.candidate, function (candidate, roomName) {
+      console.log(SocketEvent.candidate);
+
       console.log(candidate);
-      socket.broadcast.to(roomName).emit("candidate", candidate);
+      socket.broadcast.to(roomName).emit(SocketEvent.candidate, candidate);
     });
 
     socket.on(SocketEvent.offer, function (offer, roomName) {
-      socket.broadcast.to(roomName).emit("offer", offer); //Sends Offer to the other peer in the room.
+      console.log(SocketEvent.offer);
+
+      socket.broadcast.to(roomName).emit(SocketEvent.offer, offer); //Sends Offer to the other peer in the room.
     });
 
     //Triggered when server gets an answer from a peer in the room.
 
     socket.on(SocketEvent.answer, function (answer, roomName) {
-      socket.broadcast.to(roomName).emit("answer", answer); //Sends Answer to the other peer in the room.
+      console.log(SocketEvent.answer);
+
+      socket.broadcast.to(roomName).emit(SocketEvent.answer, answer); //Sends Answer to the other peer in the room.
     });
   });
 };
