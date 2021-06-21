@@ -145,24 +145,24 @@ describe("Testing Socket.io Connection Room Creation", () => {
     });
   });
 
-  it("Client 3 should not be able to join room test", (done) => {
-    const test: TestFunction["fn"] = (client1, client2) => {
-      const client3Callback: Callback["cb"] = (clients) => {
-        clients?.forEach((client) => client.close());
-        done();
-      };
+  // it("Client 3 should not be able to join room test", (done) => {
+  //   const test: TestFunction["fn"] = (client1, client2) => {
+  //     const client3Callback: Callback["cb"] = (clients) => {
+  //       clients?.forEach((client) => client.close());
+  //       done();
+  //     };
 
-      const stub = jest.fn();
-      stub();
-      expect(stub).toBeCalled();
+  //     const stub = jest.fn();
+  //     stub();
+  //     expect(stub).toBeCalled();
 
-      const client3 = new ClientSocket("3");
-      client3.join("test");
-      client3.onFull(() => client3Callback([client1, client2, client3]));
-    };
+  //     const client3 = new ClientSocket("3");
+  //     client3.join("test");
+  //     client3.onFull(() => client3Callback([client1, client2, client3]));
+  //   };
 
-    setup(test);
-  });
+  //   setup(test);
+  // });
 
   it("Client Candidate Test", (done) => {
     const test: TestFunction["fn"] = (client1, client2) => {
